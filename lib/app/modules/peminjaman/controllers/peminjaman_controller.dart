@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 import 'package:peminjam_perpustakaan_kelas_c/app/data/model/response_get_pinjam.dart';
 import 'package:peminjam_perpustakaan_kelas_c/app/data/provider/storage_provider.dart';
@@ -27,7 +28,12 @@ class PeminjamanController extends GetxController with StateMixin<List<DataGetPi
   void onClose() {
     super.onClose();
   }
-
+  String formatTanggal(tanggal) {
+    var tanggalFormat = DateTime.parse(tanggal);
+    DateFormat formatter = DateFormat('MM-dd-yyyy');
+    String formatted = formatter.format(tanggalFormat);
+    return formatted;
+  }
   getData() async {change(null, status: RxStatus.loading());
   try {
     final response = await ApiProvider.instance().get("${Endpoint.pinjam}/${await StorageProvider.read(StorageKey.idUser)}");

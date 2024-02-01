@@ -23,7 +23,7 @@ class PeminjamanView extends GetView<PeminjamanController> {
         DataGetPinjam datagetpinjam = state[index];
         return ListTile(
           title: Text("${datagetpinjam.book?.judul}"),
-          subtitle: Text("Penulis ${datagetpinjam.tanggalPinjam} - ${datagetpinjam.tanggalKembali}"),
+          subtitle: Text("Penulis ${controller.formatTanggal(datagetpinjam.tanggalPinjam)} - ${controller.formatTanggal(datagetpinjam.tanggalKembali)}"),
           leading: Icon(Icons.book, color: Colors.lightBlueAccent,),
         );
       },
