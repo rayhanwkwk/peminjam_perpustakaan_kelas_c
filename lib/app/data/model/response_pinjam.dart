@@ -11,11 +11,11 @@ class ResponsePinjam {
   ResponsePinjam.fromJson(dynamic json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? DataPinjam.fromJson(json['data']) : null;
   }
   int? status;
   String? message;
-  Data? data;
+  DataPinjam? data;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -38,8 +38,8 @@ class ResponsePinjam {
 /// created_at : "2024-01-09T06:09:06.000000Z"
 /// id : 1
 
-class Data {
-  Data({
+class DataPinjam {
+  DataPinjam({
       this.userId, 
       this.bookId, 
       this.tanggalPinjam, 
@@ -49,7 +49,7 @@ class Data {
       this.createdAt, 
       this.id,});
 
-  Data.fromJson(dynamic json) {
+  DataPinjam.fromJson(dynamic json) {
     userId = json['user_id'];
     bookId = json['book_id'];
     tanggalPinjam = json['tanggal_pinjam'];
