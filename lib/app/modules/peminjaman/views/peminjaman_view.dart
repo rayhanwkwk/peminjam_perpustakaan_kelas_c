@@ -29,7 +29,7 @@ class PeminjamanView extends GetView<PeminjamanController> {
       },
       separatorBuilder: (context, index)=> const Divider(),
       ),onLoading: Center(child:CupertinoActivityIndicator(radius: 25, ))
-    ),
+    ), //anggep aja udah
     );
   }
 }
